@@ -38,11 +38,7 @@ $games_lost = 0  # counter for games lost
 
 # Method to clear the screen regardless of OS
 def clear_screen()
-  if $use_stty  # if system is Unix
-    system("clear")  # use the "clear" command to clear the screen
-  else  # otherwise system is Windows
-    system("cls")  # so use the "cls" command to clear the screen
-  end
+  $use_stty ? system("clear") : system("cls")
 end
 
 # Method to make tweaking margins easier
