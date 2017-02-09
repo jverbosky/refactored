@@ -92,7 +92,7 @@ def good_letter(letter)
     user_input()
   elsif letter[/[a-zA-Z]+/] and letter.length == 1  # check is a single -letter- has been entered
     $bucket.push(letter)  # if so, add it to the bucket list
-    letter_test(letter)  # then pass it to letter_test()
+    #letter_test(letter)  # then pass it to letter_test()
   else  # if multiple letters, non-alpha characters or nothing has been entered
     puts "  Enter a single letter - TRY AGAIN!"  # reprompt user to try again
     user_input()

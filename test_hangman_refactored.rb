@@ -13,7 +13,7 @@ class TestHangmanRefactored < Minitest::Test
     assert_equal(system("cls"), results)
   end
 
-  #Run test if testing from Unix (Mac/Linux), if not then comment out
+  # # Run test if testing from Unix (Mac/Linux), if not then comment out
   # def test_1_use_clear_command_if_system_is_Unix_based
   #   # Note - will return true on Unix-based system
   #   # Testing here on Windows-based system
@@ -23,8 +23,8 @@ class TestHangmanRefactored < Minitest::Test
 
   # I'll be honest and admit that I expected "\n\n" as the output
   # Assuming this method returning the argument due to the puts statement
-  # Based on this, will not create tests for other methods that simply output text
-  # i.e. score(), letters(), hangman(), congratulations(), winner(), sorry() and loser()
+  # Based on this, will not create tests for other methods that output text
+  # i.e. score(), letters(), user_input(), hangman(), congratulations(), winner(), sorry() and loser()
   def test_2_verify_margin_method_outputs_correct_number_of_newlines
     results = margin(2)
     assert_equal(2, results)
@@ -37,10 +37,19 @@ class TestHangmanRefactored < Minitest::Test
     assert_equal(["_", "_", "_", "_", "_", "_", "_"], $build_word)
   end
 
-  # Not sure how to test start_game() and user_input() methods that call other methods
+  # # Not sure how to test start_game() and user_input() methods that call other methods
   # def test_4_verify_start_game_method_calls_other_methods
   #   results = start_game()
   #   assert_equal(initialize_word() && clear_screen() && user_input(), results)
   # end
+
+  # Verify that if a single letter is entered, that it is added to the bucket array
+  # Again, not sure how to verify that other methods are called following this or if there's a better way
+  # Note - need to comment out letter_test(letter) in elsif statement (line 95) for test to work
+  def test_5_verify_letter_is_added_to_bucket_array_if_good
+    letter = "a"
+    results = good_letter(letter)
+    assert_equal(["a"], $bucket)
+  end
 
 end
