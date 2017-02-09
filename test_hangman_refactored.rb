@@ -32,8 +32,7 @@ class TestHangmanRefactored < Minitest::Test
   # Unable to test start_game(), so refactoring accordingly
   def test_3_initialize_build_word_array_with_placeholder_underscores
     $word = "testing"
-    # $build_word = []  # note sure if I'll need to include this for testing or not
-    results = initialize_word($word)
+    results = initialize_word()
     assert_equal(["_", "_", "_", "_", "_", "_", "_"], $build_word)
   end
 

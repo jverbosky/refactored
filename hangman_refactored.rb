@@ -62,12 +62,18 @@ def letters()
   margin(2)
 end
 
-# Method to start the game
-def start_game(word)
-  clear_screen()  # Clear the screen
-  $word.length.times { $build_word.push("_") }  # Populate the build_word list with an underscore for each letter in the mystery word
-  user_input()  #Run user_input() to display the main "UI"
+# Method to initialize $build_word array with an underscore for every letter in $word
+def initialize_word()
+  $word.length.times { $build_word.push("_") }
 end
+
+# Unable to test method as-is, so refactoring accordingly  ^_^
+# Method to start the game
+# def start_game(word)
+#   clear_screen()  # Clear the screen
+#   $word.length.times { $build_word.push("_") }  # Populate the build_word list with an underscore for each letter in the mystery word
+#   user_input()  #Run user_input() to display the main "UI"
+# end
 
 # Method that acts as primary starting/return point for other methods
 def user_input()
