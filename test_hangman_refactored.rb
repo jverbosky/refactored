@@ -29,10 +29,12 @@ class TestHangmanRefactored < Minitest::Test
     assert_equal(2, results)
   end
 
-  # Need to determine how to tell if a method calls another method
-  def test_3_verify_start_game_method_making_proper_calls
-    results = 
-    assert_equal( , results)
+  # Unable to test start_game(), so refactoring accordingly
+  def test_3_initialize_build_word_array_with_placeholder_underscores
+    $word = "testing"
+    # $build_word = []  # note sure if I'll need to include this for testing or not
+    results = initialize_word($word)
+    assert_equal(["_", "_", "_", "_", "_", "_", "_"], $build_word)
   end
 
 end
