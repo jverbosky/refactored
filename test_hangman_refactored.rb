@@ -30,7 +30,7 @@ class TestHangmanRefactored < Minitest::Test
   end
 
   # Need to determine how to tell if a method calls another method
-  def test_3_main_method
+  def test_3_verify_start_game_method_making_proper_calls
     results = 
     assert_equal( , results)
   end
