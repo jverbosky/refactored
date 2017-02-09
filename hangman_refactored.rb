@@ -67,13 +67,12 @@ def initialize_word()
   $word.length.times { $build_word.push("_") }
 end
 
-# Unable to test method as-is, so refactoring accordingly  ^_^
-# Method to start the game
-# def start_game(word)
-#   clear_screen()  # Clear the screen
-#   $word.length.times { $build_word.push("_") }  # Populate the build_word list with an underscore for each letter in the mystery word
-#   user_input()  #Run user_input() to display the main "UI"
-# end
+# Method to start game
+def start_game()
+  initialize_word()
+  clear_screen()
+  user_input()
+end
 
 # Method that acts as primary starting/return point for other methods
 def user_input()
@@ -247,7 +246,7 @@ def game_over(ani_count)
       $bucket = []  # clear all global arrays
       $build_word = []
       $wrong_count = []
-      start_game($word)  #  and start a new game
+      start_game()  #  and start a new game
     elsif key == 27  # if the user presses the Esc key (27)
       puts "Exiting game..."  # and exit the game
       margin(1)
@@ -390,4 +389,4 @@ def loser(ani_count)
 end
 
 # Comment out for testing
-# start_game($word)
+# start_game()

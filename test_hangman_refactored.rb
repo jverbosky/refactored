@@ -24,6 +24,7 @@ class TestHangmanRefactored < Minitest::Test
   # I'll be honest and admit that I expected "\n\n" as the output
   # Assuming this method returning the argument due to the puts statement
   # Based on this, will not create tests for other methods that simply output text
+  # i.e. score(), letters(), hangman(), congratulations(), winner(), sorry() and loser()
   def test_2_verify_margin_method_outputs_correct_number_of_newlines
     results = margin(2)
     assert_equal(2, results)
@@ -35,5 +36,11 @@ class TestHangmanRefactored < Minitest::Test
     results = initialize_word()
     assert_equal(["_", "_", "_", "_", "_", "_", "_"], $build_word)
   end
+
+  # Not sure how to test start_game() and user_input() methods that call other methods
+  # def test_4_verify_start_game_method_calls_other_methods
+  #   results = start_game()
+  #   assert_equal(initialize_word() && clear_screen() && user_input(), results)
+  # end
 
 end
