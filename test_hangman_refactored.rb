@@ -66,8 +66,24 @@ class TestHangmanRefactored < Minitest::Test
   #   assert_equal(["a"], $bucket)
   # end
 
+  # Verify that letter is in the current word
+  # Note - need to comment out original method calls (line 105) for test to work,
+  #   otherwise comment out this test
+  def test_7_return_true_if_letter_in_word
+    $word = "test"
+    letter = "e"
+    results = letter_test(letter)
+    assert_equal(true, results)
+  end
 
-
-
+  # Verify that letter is in the current word
+  # Note - need to comment out original method calls (line 105) for test to work,
+  #   otherwise comment out this test
+  def test_8_return_false_if_letter_not_in_word
+    $word = "test"
+    letter = "d"
+    results = letter_test(letter)
+    assert_equal(false, results)
+  end
 
 end

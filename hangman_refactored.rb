@@ -101,11 +101,9 @@ end
 
 # Method that checks to see if letter is in the mystery word
 def letter_test(letter)
-  if $word.include? letter  # If it is in the word, pass it to find_locations()
-    find_locations(letter)
-  else  # If it is not in the word, pass it to wrong_letter()
-    wrong_letter(letter)
-  end
+  # If it is in the word pass it to find_locations(), if not pass it to wrong_letter()
+  # $word.include?(letter) ? find_locations(letter) : wrong_letter(letter)
+  $word.include?(letter)  # use for testing
 end
 
 # Method that finds all locations of a letter in the word
@@ -389,4 +387,4 @@ def loser(ani_count)
 end
 
 # Comment out for testing
-#start_game()
+# start_game()
