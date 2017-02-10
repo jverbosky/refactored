@@ -96,26 +96,47 @@ class TestHangmanRefactored < Minitest::Test
   #   assert_equal([1, 3, 6], results)
   # end
 
-  # Verify that letter gets placed into correct locations in $build_word array
-  # Note - need to comment out original method call (line 127) for test to work,
-  #   otherwise comment out this test
-  def test_10_replace_appropriate_placeholders_with_letter
-    $build_word = ["_", "_", "_", "_", "_", "_", "_", "_"]
-    letter = "e"
-    locations = [1, 3, 6]
-    results = add_letter(letter, locations)
-    assert_equal(["_", "e", "_", "e", "_", "_", "e", "_"], $build_word)
-  end
-
-  # # Verify that $games_won is incremented when word is correctly guessed
-  # # Note - need to comment out original method call (line 135) for test to work,
+  # # Verify that letter gets placed into correct locations in $build_word array
+  # # Note - need to comment out original method call (line 127) for test to work,
   # #   otherwise comment out this test
   # def test_10_replace_appropriate_placeholders_with_letter
+  #   $build_word = ["_", "_", "_", "_", "_", "_", "_", "_"]
+  #   letter = "e"
+  #   locations = [1, 3, 6]
+  #   results = add_letter(letter, locations)
+  #   assert_equal(["_", "e", "_", "e", "_", "_", "e", "_"], $build_word)
+  # end
+
+  # # Verify that $games_won is incremented when word is correctly guessed
+  # # Note - need to comment out original method call (line 134) for test to work,
+  # #   otherwise comment out this test
+  # def test_11_games_won_count_incremented_upon_win
   #   $games_won = 0
   #   $word = "testing"
   #   $build_word = ["t", "e", "s", "t", "i", "n", "g"]
   #   results = word_test()
   #   assert_equal(1, $games_won)
   # end
+
+  # Verify that an incorrectly guessed letter is added to the $wrong_count array
+  # Note - need to comment out original method call (line 144) for test to work,
+  #   otherwise comment out this test
+  def test_12_add_wrong_letter_to_wrong_count_array
+    $wrong_count = ["z", "x", "w", "q", "d", "f", "k", "m"]
+    letter = "u"
+    results = wrong_letter(letter)
+    assert_equal(["z", "x", "w", "q", "d", "f", "k", "m", "u"], $wrong_count)
+  end
+
+  # Verify that $games_lost is incremented upon the 9th incorrectly guessed letter
+  # Note - need to comment out original method call (line 147) for test to work,
+  #   otherwise comment out this test
+  def test_13_games_lost_count_incremented_upon_lost
+    letter = "p"
+    $games_lost = 0
+    $wrong_count = ["z", "x", "w", "q", "d", "f", "k", "m", "u"]
+    results = wrong_letter(letter)
+    assert_equal(1, $games_lost)
+  end
 
 end

@@ -124,7 +124,7 @@ end
 def add_letter(letter, locations)
   # for each occurrence of a letter, add the letter to the correct location in $build-word
   locations.each { |location| $build_word[location] = letter }
-  # word_test()  # then run word_test()
+  word_test()  # then run word_test()
 end
 
 # Method to compare the current build_word array against the mystery word
@@ -141,10 +141,10 @@ end
 def wrong_letter(letter)
   if $wrong_count.length < 9  # if the wrong_count list has less than 9 letters
     $wrong_count.push(letter)  # then add the letter to the list
-    user_input()  # run user_input() again
+    # user_input()  # run user_input() again
   else  # if this is the tenth wrong letter, it's game over
     $games_lost += 1  # so increase the games_lost score by 1
-    loser(5)  # and start loser() on frame 1 (animation count 5)
+    # loser(5)  # and start loser() on frame 1 (animation count 5)
   end
 end
 
