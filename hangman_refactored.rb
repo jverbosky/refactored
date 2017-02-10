@@ -116,8 +116,8 @@ def find_locations(letter)
     locations.push(last_index)  # push the position of the letter to the location array
     last_index += 1  # increment last_index by 1 to target the next occurrence of the letter (via .index offset)
   end
-  # add_letter(letter, locations)  # pass the user-specified letter and array of locations to add_letter()
-  return locations  # use for testing
+  add_letter(letter, locations)  # pass the user-specified letter and array of locations to add_letter()
+  # return locations  # use for testing
 end
 
 # Method to populate $build_word with every occurrence of a letter
@@ -125,7 +125,7 @@ def add_letter(letter, locations)
   locations.each do |location|  # for each occurrence of a letter
     $build_word[location] = letter  # add the letter to the correct location in $build-word
   end
-  word_test()  # then run word_test()
+  # word_test()  # then run word_test()
 end
 
 # Method to compare the current build_word array against the mystery word

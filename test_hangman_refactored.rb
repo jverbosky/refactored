@@ -66,35 +66,45 @@ class TestHangmanRefactored < Minitest::Test
   #   assert_equal(["a"], $bucket)
   # end
 
-  # Verify that letter is in the current word
-  # Note - need to comment out original method calls (line 105) for test to work,
+  # # Verify that letter is in the current word
+  # # Note - need to comment out original method calls (line 105) for test to work,
+  # #   otherwise comment out this test
+  # def test_7_return_true_if_letter_in_word
+  #   $word = "test"
+  #   letter = "e"
+  #   results = letter_test(letter)
+  #   assert_equal(true, results)
+  # end
+
+  # # Verify that letter is not in the current word
+  # # Note - need to comment out original method calls (line 105) and uncomment the subsequent line
+  # #   for test to work, otherwise comment out this test
+  # def test_8_return_false_if_letter_not_in_word
+  #   $word = "test"
+  #   letter = "d"
+  #   results = letter_test(letter)
+  #   assert_equal(false, results)
+  # end
+
+  # # Verify the positions of a letter in a word
+  # # Note - need to comment out original method call (line 119) and uncomment the subsequent line
+  # #   for test to work, otherwise comment out this test
+  # def test_9_return_positions_of_letter_in_word
+  #   $word = "repeated"
+  #   letter = "e"
+  #   results = find_locations(letter)
+  #   assert_equal([1, 3, 6], results)
+  # end
+
+  # Verify that letter gets placed into correct locations in $build_word array
+  # Note - need to comment out original method call (line 128) for test to work,
   #   otherwise comment out this test
-  def test_7_return_true_if_letter_in_word
-    $word = "test"
+  def test_10_replace_appropriate_placeholders_with_letter
+    $build_word = ["_", "_", "_", "_", "_", "_", "_", "_"]
     letter = "e"
-    results = letter_test(letter)
-    assert_equal(true, results)
+    locations = [1, 3, 6]
+    results = add_letter(letter, locations)
+    assert_equal(["_", "e", "_", "e", "_", "_", "e", "_"], $build_word)
   end
-
-  # Verify that letter is not in the current word
-  # Note - need to comment out original method calls (line 105) and uncomment the subsequent line
-  #   for test to work, otherwise comment out this test
-  def test_8_return_false_if_letter_not_in_word
-    $word = "test"
-    letter = "d"
-    results = letter_test(letter)
-    assert_equal(false, results)
-  end
-
-  # Verify the positions of a letter in a word
-  # Note - need to comment out original method call (line 119) and uncomment the subsequent line
-  #   for test to work, otherwise comment out this test
-  def test_9_return_positions_of_letter_in_word
-    $word = "repeated"
-    letter = "e"
-    results = find_locations(letter)
-    assert_equal([1, 3, 6], results)
-  end
-
 
 end
