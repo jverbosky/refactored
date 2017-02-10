@@ -102,8 +102,8 @@ end
 # Method that checks to see if letter is in the mystery word
 def letter_test(letter)
   # If it is in the word pass it to find_locations(), if not pass it to wrong_letter()
-  # $word.include?(letter) ? find_locations(letter) : wrong_letter(letter)
-  $word.include?(letter)  # use for testing
+  $word.include?(letter) ? find_locations(letter) : wrong_letter(letter)
+  # $word.include?(letter)  # use for testing
 end
 
 # Method that finds all locations of a letter in the word
@@ -116,7 +116,8 @@ def find_locations(letter)
     locations.push(last_index)  # push the position of the letter to the location array
     last_index += 1  # increment last_index by 1 to target the next occurrence of the letter (via .index offset)
   end
-  add_letter(letter, locations)  # pass the user-specified letter and array of locations to add_letter()
+  # add_letter(letter, locations)  # pass the user-specified letter and array of locations to add_letter()
+  return locations  # use for testing
 end
 
 # Method to populate $build_word with every occurrence of a letter

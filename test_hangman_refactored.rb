@@ -77,13 +77,24 @@ class TestHangmanRefactored < Minitest::Test
   end
 
   # Verify that letter is not in the current word
-  # Note - need to comment out original method calls (line 105) for test to work,
-  #   otherwise comment out this test
+  # Note - need to comment out original method calls (line 105) and uncomment the subsequent line
+  #   for test to work, otherwise comment out this test
   def test_8_return_false_if_letter_not_in_word
     $word = "test"
     letter = "d"
     results = letter_test(letter)
     assert_equal(false, results)
   end
+
+  # Verify the positions of a letter in a word
+  # Note - need to comment out original method call (line 119) and uncomment the subsequent line
+  #   for test to work, otherwise comment out this test
+  def test_9_return_positions_of_letter_in_word
+    $word = "repeated"
+    letter = "e"
+    results = find_locations(letter)
+    assert_equal([1, 3, 6], results)
+  end
+
 
 end
