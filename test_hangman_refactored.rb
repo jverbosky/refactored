@@ -96,15 +96,26 @@ class TestHangmanRefactored < Minitest::Test
   #   assert_equal([1, 3, 6], results)
   # end
 
-  # Verify that letter gets placed into correct locations in $build_word array
-  # Note - need to comment out original method call (line 128) for test to work,
+  # # Verify that letter gets placed into correct locations in $build_word array
+  # # Note - need to comment out original method call (line 128) for test to work,
+  # #   otherwise comment out this test
+  # def test_10_replace_appropriate_placeholders_with_letter
+  #   $build_word = ["_", "_", "_", "_", "_", "_", "_", "_"]
+  #   letter = "e"
+  #   locations = [1, 3, 6]
+  #   results = add_letter(letter, locations)
+  #   assert_equal(["_", "e", "_", "e", "_", "_", "e", "_"], $build_word)
+  # end
+
+  # Verify that $games_won is incremented when word is correctly guessed
+  # Note - need to comment out original method call (line 135) for test to work,
   #   otherwise comment out this test
   def test_10_replace_appropriate_placeholders_with_letter
-    $build_word = ["_", "_", "_", "_", "_", "_", "_", "_"]
-    letter = "e"
-    locations = [1, 3, 6]
-    results = add_letter(letter, locations)
-    assert_equal(["_", "e", "_", "e", "_", "_", "e", "_"], $build_word)
+    $games_won = 0
+    $word = "testing"
+    $build_word = ["t", "e", "s", "t", "i", "n", "g"]
+    results = word_test()
+    assert_equal(1, $games_won)
   end
 
 end

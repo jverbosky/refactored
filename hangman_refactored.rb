@@ -125,14 +125,14 @@ def add_letter(letter, locations)
   locations.each do |location|  # for each occurrence of a letter
     $build_word[location] = letter  # add the letter to the correct location in $build-word
   end
-  # word_test()  # then run word_test()
+  word_test()  # then run word_test()
 end
 
 # Method to compare the current build_word array against the mystery word
 def word_test()
   if $build_word.join == $word  # if $build_word equals $word, the user won
     $games_won += 1  # so increase the games_won score by 1
-    winner(1)  # and start winner() on frame 1 (animation count 1)
+    # winner(1)  # and start winner() on frame 1 (animation count 1)
   else  # if they don't match, run user_input() for another letter
     user_input()
   end
